@@ -1,0 +1,45 @@
+class Solution {
+    public int numMagicSquaresInside(int[][] grid) {
+
+        int n = grid.length;
+        if(n < 1){
+            return 0 ;
+        }
+        //calculate the sum of the first row
+        //for first row we take [0][i]
+        int sum = 0 ;
+        for(int i = 0 ; i < n ; i++){
+            sum += grid[0][i];
+        }
+
+        //comapre this sum to all row and column sum 
+
+        //calculate the sum of rows and columns
+        //for row we take [i][j]
+        //for col we take [j][i]
+        for(int i = 0 ; i < n ; i++){
+            int rowSum = 0 ;
+            int colSum =0;
+            for(int j = 0 ; j < n ; j++){
+                rowSum +=grid[i][j];
+                colSum += grid[j][i];
+            }
+            if(rowSum != sum || colSum != sum)
+                return 0;
+        }
+
+        //calculate the sum of diagonal
+        //for first daigonal we take the [i][i]
+        //for second diagonal we take [i][1-i-n]
+        int d1Sum = 0 ; int d2Sum = 0;
+        for(int i = 0; i < n ;i++){
+            d1Sum += grid[i][i];
+            d1Sum += grid[i][n-1-i];
+
+        }
+        if(d1Sum != sum || d2Sum != sum)
+            return 0;
+
+        return 1;        
+    }
+}

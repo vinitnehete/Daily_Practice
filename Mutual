@@ -1,0 +1,45 @@
+// Online C compiler to run C program online
+//Write a program to simulate the Distributed Mutual Exclusion
+
+#include<stdio.h>
+#include<conio.h>
+//#include<dos.h>
+//#include<time.h>
+
+int cs=0,pro=0,c;
+double run=5;
+char key='a';
+//time_t t1,t2,e1,e2;
+
+void main()
+{
+//clrscr();
+printf("\nMutual exclusion \n");
+printf("Press any key(except q) to enter a process into critical section\n.");
+printf(" \nPress q at any time to exit.\n");
+//t1 = time(NULL) -5;
+while(key!='q')
+{
+while(!kbhit())
+{
+pro++;
+printf("\nProcess %d enters the critical section.\n ",pro);
+sleep(3);
+printf("\nProcess %d leaves the critical section.\n ",pro);
+}
+key = getch();
+if(key!='q')
+{
+//if(cs!=0)
+printf("Error: Another process is currently executing critical section Please wait till its execution is over.\n");
+}
+else
+{
+x:printf("Process %d entered critical section\n",pro);
+ // cs=1;
+ // pro++;
+ // t1 = time(NULL);
+//}
+
+}
+}}
